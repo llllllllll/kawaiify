@@ -1,4 +1,4 @@
-kawiify
+kawaiify
 =======
 
 Sugoi! Kawaii desu ne!
