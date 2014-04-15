@@ -1,4 +1,4 @@
-/* kawaiify.c --- Kawaii output for your terminal.
+/* kawaiify.h --- Kawaii output for your terminal.
    Copyright (c) 2014 Joe Jevnik
 
    This program is free software; you can redistribute it and/or modify it
