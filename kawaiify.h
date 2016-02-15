@@ -24,7 +24,7 @@
 #include <time.h>
 
 // Resets the colors of the terminal.
-#define RESET    "\033[0m"
+#define RESET    "\e[0m"
 
 // The color format string.
 #define COLORFMT "\e[38;2;%d;%d;%dm"

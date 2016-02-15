@@ -130,14 +130,27 @@ int main(void){
     int      d;
     double   f;
     hslcolor h = { 0.0,SATURATION,LUMINANCE };
+    int      in_escape = 0;
     srand(time(NULL));
     f     = ((double) rand()) / ((double) RAND_MAX);
     h.hue = f;
     to_rgb(&h,&c);
     while((d = getchar()) != EOF){
-        cputchar(&c,d);
-        getcolor(f,&c);
-        f = ((f + HUESTEP) >= 1) ? 0 : f + HUESTEP;
+        if (d == '\e'){
+            in_escape = 1;
+        }
+
+        if (in_escape || d){
+            putchar(d);
+        }else{
+            cputchar(&c,d);
+            getcolor(f,&c);
+            f = ((f + HUESTEP) >= 1) ? 0 : f + HUESTEP;
+        }
+
+        if (in_escape && d >= 64 && d <= 126 && d != '['){
+            in_escape = 0;
+        }
     }
     printf(RESET);
     return 0;
